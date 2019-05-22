@@ -2,8 +2,8 @@
 
 A simple and flexible Javascript form generator and validator. Based on [forms](https://github.com/caolan/forms).
 
-Currently only **<input>** field is generate-able at the moment.
-Other fields such as **<select>** will be added later.
+Currently only <input> field is generate-able at the moment.
+Other fields such as <select> will be added later.
 
 ## Installation
 
