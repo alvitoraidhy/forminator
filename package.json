@@ -1,7 +1,7 @@
 {
-  "name": "reforms",
+  "name": "forminator",
   "version": "0.0.1",
-  "description": "A basic Javascript form generator and validator.",
+  "description": "A simple Javascript form generator and validator.",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/icarus213/reforms.git"
+    "url": "git+https://github.com/icarus213/forminator.git"
   },
   "author": "icarus213",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/icarus213/reforms/issues"
+    "url": "https://github.com/icarus213/forminator/issues"
   },
-  "homepage": "https://github.com/icarus213/reforms#readme",
+  "homepage": "https://github.com/icarus213/forminator#readme",
   "dependencies": {
     "formidable": "^1.2.1",
     "html-tag": "^2.0.0",
