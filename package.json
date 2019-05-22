@@ -1,0 +1,30 @@
+{
+  "name": "reforms",
+  "version": "0.0.1",
+  "description": "A basic Javascript form generator and validator.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icarus213/reforms.git"
+  },
+  "author": "icarus213",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icarus213/reforms/issues"
+  },
+  "homepage": "https://github.com/icarus213/reforms#readme",
+  "dependencies": {
+    "formidable": "^1.2.1",
+    "html-tag": "^2.0.0",
+    "is": "^3.3.0",
+    "qs": "^6.7.0",
+    "uuid": "^3.3.2"
+  }
+}
