@@ -10,7 +10,7 @@ Other fields such as \<select\> will be added later.
 Use the package manager **npm** to install reforms.
 
 ```bash
-npm install --save reforms
+npm install --save forminator
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ In this example we're using Express and ejs as template engine.
 
 *forms.js*
 ```javascript
-const forms = require('../reforms');
+const forms = require('forminator');
 const fields = forms.fields;
 const validators = forms.validators;
  
