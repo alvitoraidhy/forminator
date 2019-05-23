@@ -7,7 +7,7 @@ Other fields such as \<select\> will be added later.
 
 ## Installation
 
-Use the package manager **npm** to install reforms.
+Use the package manager **npm** to install forminator.
 
 ```bash
 npm install --save forminator
