@@ -16,7 +16,7 @@ npm install --save forminator
 ## Usage
 In this example we're using Express and ejs as template engine.
 
-*forms.js*
+*test.js*
 ```javascript
 const forms = require('forminator');
 const fields = forms.fields;
