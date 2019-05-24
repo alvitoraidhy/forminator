@@ -2,8 +2,11 @@
 
 A simple and flexible Javascript form generator and validator. Based on [forms](https://github.com/caolan/forms).
 
-Currently only \<input\> field is generate-able at the moment.
-Other fields such as \<select\> will be added later.
+Available fields:
+- labelField
+- inputField
+- selectField
+- textAreaField
 
 ## Installation
 
@@ -72,10 +75,10 @@ app.post('/', function (req, res) {
 This would produce:
 ```html
 <h1>Hello World!</h1>
-  <form method="POST" class="form">
-    <label for="id-test">Hello There!</label>
-    <input type="text" id="id-test" name="test">
-    <button type="submit">Attend</button>
+<form method="POST" class="form">
+  <label for="id-test">Hello There!</label>
+  <input type="text" id="id-test" name="test">
+  <button type="submit">Attend</button>
 </form>
 ```
 
@@ -96,13 +99,12 @@ Or:
 ```javascript
 form.fields.test.render({class: 'form-control'});
 ```
-**Be careful** when adding attributes to your fields.
+The second method won't accept 'id', 'name', and 'type' attributes. This is intentional.
 
+**Be careful** when adding attributes to your fields.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
