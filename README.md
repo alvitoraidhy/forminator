@@ -2,12 +2,6 @@
 
 A simple and flexible Javascript form generator and validator. Based on [forms](https://github.com/caolan/forms).
 
-Available fields:
-- labelField
-- inputField
-- selectField
-- textAreaField
-
 ## Installation
 
 Use the package manager **npm** to install forminator.
@@ -35,6 +29,7 @@ var test_form = forms.create({
 
 module.exports = test_form;
 ```
+
 *index.js*
 ```javascript
 . . .
@@ -72,6 +67,7 @@ app.post('/', function (req, res) {
   <button type="submit">Attend</button>
 </form>
 ```
+
 This would produce:
 ```html
 <h1>Hello World!</h1>
@@ -102,6 +98,48 @@ form.fields.test.render({class: 'form-control'});
 The second method won't accept 'id', 'name', and 'type' attributes. This is intentional.
 
 **Be careful** when adding attributes to your fields.
+
+## Available Fields
+- labelField
+- inputField
+- selectField
+- textAreaField
+
+```javascript
+var test_form = forms.create({
+    // All of the fields accepts attributes.
+    // This includes: labels, choices for selectField.
+
+    test: fields.labelField({text: 'Hello There!'}),
+
+    test2: fields.inputField({
+      _type: 'text', // this defaults to 'text'
+      label: {text: 'Hello Again!'},
+      validators: [
+        validators.required('Say something!')
+      ]
+    }),
+
+    test3: fields.selectField({
+      label: {text: 'Howdy!'},
+      choices: [ // render the choices like labels (one by one)
+        {_value: 'text', text: 'Text'},
+        {_value: 'text2', text: 'Text2'},
+        {_value: 'text3', text: 'Text3'}
+      ],
+      validators: [
+        validators.required('Say something!')
+      ]
+    }),
+
+    test4: fields.textAreaField({
+      _disabled: true,
+      label: {text: 'Hey!'},
+      text: 'Testing this.',
+      validators: []
+    })
+});
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
