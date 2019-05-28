@@ -109,8 +109,6 @@ var test_form = forms.create({
     // All of the fields accepts attributes.
     // This includes: labels, choices for selectField.
 
-    test: fields.labelField({text: 'Hello There!'}),
-
     test2: fields.inputField({
       _type: 'text', // this defaults to 'text'
       label: {text: 'Hello Again!'},
