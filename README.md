@@ -97,6 +97,8 @@ form.fields.test.render({class: 'form-control'});
 ```
 The second method won't accept 'id', 'name', and 'type' attributes. This is intentional.
 
+Note that the attributes only accepts string or boolean as their value. So, make sure to convert your numbers into strings first before inserting them.
+
 **Be careful** when adding attributes to your fields.
 
 ## Available Fields
