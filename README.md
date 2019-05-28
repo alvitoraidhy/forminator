@@ -100,7 +100,6 @@ The second method won't accept 'id', 'name', and 'type' attributes. This is inte
 **Be careful** when adding attributes to your fields.
 
 ## Available Fields
-- labelField
 - inputField
 - selectField
 - textAreaField
