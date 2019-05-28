@@ -119,7 +119,7 @@ var test_form = forms.create({
 
     test3: fields.selectField({
       label: {text: 'Howdy!'},
-      choices: [ // render the choices like labels (one by one)
+      choices: [
         {_value: 'text', text: 'Text'},
         {_value: 'text2', text: 'Text2'},
         {_value: 'text3', text: 'Text3'}
