@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index Page</title>
+</head>
+<body>
+  <h1>Hello World!</h1>
+  <form method="POST" class="form">
+    <%- form.fields.test.label.render() %>
+    <%- form.fields.test.render() %> <br>
+    <% form.fields.test.errors.forEach(function(error) { %>
+      <strong><%= error %></strong> <br>
+    <% }); %>
+
+    <%- form.fields.test2.label.render() %>
+    <%- form.fields.test2.render() %> <br>
+    <% form.fields.test2.errors.forEach(function(error) { %>
+      <strong><%= error %></strong> <br>
+    <% }); %>
+
+    <%- form.fields.test3.label.render() %>
+    <%- form.fields.test3.render() %> <br>
+    <% form.fields.test3.errors.forEach(function(error) { %>
+      <strong><%= error %></strong> <br>
+    <% }); %>
+
+    <%- form.fields.test4.label.render() %>
+    <%- form.fields.test4.render() %> <br>
+    <% form.fields.test4.errors.forEach(function(error) { %>
+      <strong><%= error %></strong> <br>
+    <% }); %>
+    <button type="submit">Attend</button>
+  </form>
+</body>
+</html>

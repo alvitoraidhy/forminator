@@ -1,0 +1,14 @@
+{
+  "name": "Example",
+  "version": "0.0.0",
+  "description": "An example web app for Forminator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-async-handler": "^1.1.4",
+    "forminator": "*"
+  }
+}
