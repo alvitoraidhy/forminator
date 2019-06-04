@@ -78,6 +78,113 @@ This would produce:
 </form>
 ```
 
+There are 3 ways to validate your form:
+```javascript
+/**
+ * This is the most efficient way.
+ * Pro: A new form instance is only generated when 'handle' method is called.
+ * Con: The 'submitted' form from handle won't copy any new attributes that you added
+ *      or modified after the first form is generated.
+ *
+ * If that is not a problem, then this is the best method for you.
+ */
+
+const TestForm = require('../forms/test');
+var test_form = TestForm();
+
+// This won't be in the 'submitted' form
+test_form.fields.test._class = 'form-control'
+
+app.get('/', function (req, res) {
+  res.render('index', {form: test_form});
+});
+
+app.post('/', function (req, res) {
+  test_form.handle(req, function(submitted) {
+    // The 'test' field in 'submitted' won't contain 'class' attribute 
+    // that was applied before.
+    if (submitted.isValid) {
+      res.send(submitted.fields.test.value);
+    }
+    else {
+      res.render('index', {form: submitted});
+    }
+  });
+});
+```
+```javascript
+/**
+ * This is the less headache way.
+ * Pro: Customizable form.
+ * Con: A new form instance is generated at least twice (at 'GET' + 'POST' route).
+ *      (But, I think you already expected this)
+ *
+ * If you need to do something with the form instance first (ex: dynamically generated 
+ * choices for selectField), then use this method.
+ */
+
+const TestForm = require('../forms/test');
+
+function Form() {
+  var form = TestForm();
+  form.fields.test._class = 'form-control';
+  return form;
+}
+
+app.get('/', function (req, res) {
+  var get_form = Form();
+  res.render('index', {form: get_form});
+});
+
+app.post('/', function (req, res) {
+  var post_form = Form();
+  post_form.self_handle(req, function(submitted) {
+    // post_form === submitted. It doesn't matter which one you use.
+    if (submitted.isValid) {
+      res.send(submitted.fields.test.value);
+    }
+    else {
+      res.render('index', {form: submitted});
+    }
+  });
+});
+```
+```javascript
+/**
+ * Exactly the same as the second one, but with async.
+ * Pro: Clean looking code.
+ * Con: You need to use an async handler (I use express-async-handler).
+ *
+ * This method is recommended for cleaner looking code.
+ */
+
+const asyncHandler = require('express-async-handler')
+const TestForm = require('../forms/test');
+
+function Form() {
+  var form = TestForm();
+  form.fields.test._class = 'form-control';
+  return form;
+}
+
+app.get('/', function (req, res) {
+  var test_form = Form();
+  res.render('index', {form: test_form});
+});
+
+app.post('/', asyncHandler(async function (req, res) {
+  var test_form = Form();
+  if (await test_form.validate(req)) {
+    // Form is valid
+    res.send(test_form.fields.test.value);
+  }
+  else {
+    // Form contains at least one error
+    res.render('index', {form: test_form});
+  }
+}));
+```
+
 You can add attributes to your tags like this:
 ```javascript
 var test_form = forms.create({
@@ -91,17 +198,22 @@ var test_form = forms.create({
   })
 });
 ```
-Or:
+```javascript
+const TestForm = require('../forms/test');
+var form = TestForm();
+form.fields.test._class = 'form-control';
+````
 ```javascript
 form.fields.test.render({class: 'form-control'});
 ```
-The second method won't accept 'id', 'name', and 'type' attributes. This is intentional.
+The third method won't accept 'id', 'name', and 'type' attributes. This is intentional.
 
-Note that the attributes only accepts string or boolean as their value. So, make sure to convert your numbers into strings first before inserting them.
+Note that the attributes only accept string or boolean as their value. So, make sure to convert your numbers into strings first before inserting them.
 
 **Be careful** when adding attributes to your fields.
 
 ## Available Fields
+- labelField
 - inputField
 - selectField
 - textAreaField

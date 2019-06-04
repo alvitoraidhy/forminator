@@ -39,8 +39,12 @@ describe('The Form class', function() {
     assert.strictEqual(Form.prototype.handle instanceof Function, true);
   });
 
-  it('should have \'bind_form\' method', function() {
-    assert.strictEqual(Form.prototype.bind_form instanceof Function, true);
+  it('should have \'self_handle\' method', function() {
+    assert.strictEqual(Form.prototype.self_handle instanceof Function, true);
+  });
+
+  it('should have \'validate\' method', function() {
+    assert.strictEqual(Form.prototype.validate instanceof Function, true);
   });
 });
 
@@ -63,8 +67,12 @@ describe('The form instance', function() {
     assert.strictEqual(form_instance.handle instanceof Function, true);
   });
 
-  it('should have \'bind_form\' method', function() {
-    assert.strictEqual(form_instance.bind_form instanceof Function, true);
+  it('should have \'self_handle\' method', function() {
+    assert.strictEqual(form_instance.self_handle instanceof Function, true);
+  });
+
+  it('should have \'validate\' method', function() {
+    assert.strictEqual(form_instance.validate instanceof Function, true);
   });
 
   it('shouldn\'t be a reference to other form instance from the same generator', function() {
